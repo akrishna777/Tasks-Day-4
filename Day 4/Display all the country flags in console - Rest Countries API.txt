@@ -1,0 +1,15 @@
+Task: Use the rest countries API url -> https://restcountries.eu/rest/v2/all and display all the country flags in console
+
+Code:
+
+fetch("https://restcountries.com/v2/all")
+    .then(function (res) {
+        return res.json()
+    })
+    .then(function (data) {
+        for (element in data) {
+            console.log(data[element].flags.png)
+        }
+    })
+
+Description: The above code will fetch all the data from the given url and convert the response into a JSON format. We can then use a function will make use of a for in loop which will print all the values of flag key in data object.
