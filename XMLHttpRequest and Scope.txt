@@ -1,0 +1,139 @@
+Question 1:
+
+How to compare two JSON have the same properties without order?
+var obj1 = { name: "Person 1", age:5 };
+var obj2 = { age:5, name: "Person 1" };
+
+Code:
+var obj1 = { name: "Person 1", age: 5 };
+var obj2 = { age: 5, name: "Person 1" };
+
+function hasSameProperties(object1, object2) {
+    let obj1Keys = Object.keys(obj1);
+    if (obj1Keys.every(key => obj2.hasOwnProperty(key))) {
+        return true
+    }
+    return false
+}
+console.log(hasSameProperties(obj1, obj2))
+
+Description:
+In our solution we have created a function called hasSameProperties which will take two objects and compare their properties. Inside the function we have used Object.keys method which will give us a the properties of the obj1 in an array form. The function also has an every() method. We have also used.hasOwnProperty() method. The every() method will iterate through all the elements of the array we get in obj1Keys variable and it will store it in key variable an then the the hasOwnProperty method will check if the values in key match the properties present in obj2. If the properties match it will return true otherwise false.   
+
+
+
+Question 2:
+
+Use the rest countries API url -> https://restcountries.eu/rest/v2/all and display all the country flags in console
+
+Code:
+
+const getData = () => {
+  const xhr = new XMLHttpRequest()
+  xhr.open('GET', 'https://restcountries.com/v2/all')
+
+  xhr.onload = () => {
+    const data = JSON.parse(xhr.response)
+
+    for (element in data) {
+      console.log(data[element].flags.png)
+    }
+  }
+
+  xhr.send()
+}
+
+getData()
+
+Description: The above code will fetch all the data from the given url and convert the response into a JSON format. We can then use of a for in loop which will print all the values of flag key in data object.
+
+
+
+Question 3:
+
+Use the rest countries and print all countries name, region, sub region and population
+
+Code:
+
+// To print all the country names
+
+const getData = () => {
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', 'https://restcountries.com/v2/all')
+  
+    xhr.onload = () => {
+      const data = JSON.parse(xhr.response)
+  
+      for (element in data) {
+        console.log(data[element].name)
+    }
+    }
+  
+    xhr.send()
+  }
+  
+  getData()
+
+
+// To print all the country region
+
+const getData = () => {
+  const xhr = new XMLHttpRequest()
+  xhr.open('GET', 'https://restcountries.com/v2/all')
+
+  xhr.onload = () => {
+    const data = JSON.parse(xhr.response)
+
+    for (element in data) {
+      console.log(data[element].region)
+    }
+  }
+
+  xhr.send()
+}
+
+getData()
+
+// To print all the country sub-region
+
+const getData = () => {
+  const xhr = new XMLHttpRequest()
+  xhr.open('GET', 'https://restcountries.com/v2/all')
+
+  xhr.onload = () => {
+    const data = JSON.parse(xhr.response)
+
+    for (element in data) {
+      console.log(data[element].subregion)
+    }
+  }
+
+  xhr.send()
+}
+
+getData()
+
+// To print all the country population
+
+const getData = () => {
+  const xhr = new XMLHttpRequest()
+  xhr.open('GET', 'https://restcountries.com/v2/all')
+
+  xhr.onload = () => {
+    const data = JSON.parse(xhr.response)
+
+    for (element in data) {
+      console.log(data[element].population)
+    }
+  }
+
+  xhr.send()
+}
+
+getData()
+
+
+Description: In the above code we have used the XMLHttpRequest method to get all the data response from the url. the function xhr.onload converts all the data in JSON format. Then for loop in onload function will iterate over all the properties of the data and print the values present of the provided argument.
+
+
+
